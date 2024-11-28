@@ -1,0 +1,5 @@
+build/
+!.vscode/
+sources/
+inc/
+lib/

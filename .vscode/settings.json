@@ -1,0 +1,72 @@
+{
+    // 安装插件 seunlanlege.action-buttons ，重启vscode生效
+    // 打开一个子模块文件，再使用按钮
+    "actionButtons": {
+        "defaultColor": "yellow",
+        "reloadButton": "♻️",
+        "commands": [
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(word-wrap) 单文件编译",
+                "singleInstance": true,
+                "command": "make MOD_SRC_PATH=${relativeFile}",
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(run) 单文件运行",
+                "singleInstance": true,
+                "command": "make MOD_SRC_PATH=${relativeFile} run",
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(debug) 单文件调试",
+                "useVsCodeApi": true,
+                "command": "workbench.action.debug.start",
+                "args": [
+                    "debug_raylib"
+                ]
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(run) 单文件清理",
+                "singleInstance": true,
+                "command": "make MOD_SRC_PATH=${relativeFile} distclean",
+            },
+            ,
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(word-wrap) 编译",
+                "singleInstance": true,
+                "command": "make MOD_ABS_DIR=${fileDirname}",
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(run) 运行",
+                "singleInstance": true,
+                "command": "make MOD_ABS_DIR=${fileDirname} run",
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(debug) 调试",
+                "useVsCodeApi": true,
+                "command": "workbench.action.debug.start",
+                "args": [
+                    "debug_raylib"
+                ]
+            },
+            {
+                "cwd": "${workspaceFolder}",
+                "name": "$(run) 清理",
+                "singleInstance": true,
+                "command": "make MOD_ABS_DIR=${fileDirname} distclean",
+            },
+        ]
+    },
+    "C_Cpp.files.exclude": {
+        "**/sources/**": true,
+    },
+    "C_Cpp.codeAnalysis.exclude": {
+        "**/sources/**": true
+    },
+    "cmake.ignoreCMakeListsMissing": true
+}
